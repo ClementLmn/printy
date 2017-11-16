@@ -1,0 +1,35 @@
+.header{
+    padding: 20px 0;
+}
+
+.inner-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo-wrapper{
+        width: 120px;
+    }
+    .logo{
+        max-width: 100%;
+        height: auto;
+    }
+    .nav{
+        display: flex;
+        padding: 0;
+        .icon{
+            height: 30px;
+            width: 30px;
+        }
+    }
+    li {
+        font-weight: 600;
+        list-style-type: none;
+        margin: 0 25px;
+        padding: 5px;
+        a{
+            display: block;
+            width: 100%;
+
+        }
+    }
+}
