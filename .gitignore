@@ -1,0 +1,6 @@
+.DS_Store
+.sass-cache
+front/node_modules/
+front/dist/
+npm-debug.log
+yarn-error.log
