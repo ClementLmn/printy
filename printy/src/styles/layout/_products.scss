@@ -1,0 +1,24 @@
+.product-list{
+    display: flex;
+}
+
+.list-intro{
+    width: 200px;
+}
+
+.product-list-wrapper{
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.product-item{
+    margin: 0 $gutter*2;
+}
+
+.product-image{
+    width: 200px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}

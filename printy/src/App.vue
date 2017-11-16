@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <Header></Header>
+        <HeaderTop></HeaderTop>
         <router-view/>
         <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <defs>
@@ -22,12 +22,12 @@
 </template>
 
 <script>
-import Header from '@/components/Header'
+import HeaderTop from '@/components/HeaderTop'
 export default {
     name: 'app',
 
     components: {
-		Header
+		HeaderTop
 	}
 }
 </script>

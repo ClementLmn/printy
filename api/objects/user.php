@@ -7,11 +7,10 @@ class User{
  
     // object properties
     public $id;
-    public $name;
-    public $description;
-    public $price;
-    public $category_id;
-    public $category_name;
+    public $fname;
+    public $lname;
+    public $pwd;
+    public $mail;
     public $created;
  
     // constructor with $db as database connection

@@ -33,7 +33,7 @@
 <script>
 import Logo from '@/components/Logo';
 export default {
-    name: 'Header',
+    name: 'HeaderTop',
     components: {
         Logo
     },

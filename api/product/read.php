@@ -35,6 +35,7 @@ if($num>0){
  
         $product_item=array(
             "id" => $id,
+            "image_path" => $image_path,
             "name" => $name,
             "description" => html_entity_decode($description),
             "price" => $price,

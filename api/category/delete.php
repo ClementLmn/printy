@@ -6,35 +6,35 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
  
-// get database connection
-include_once '../config/database.php';
  
-// instantiate category object
+// include database and object file
+include_once '../config/database.php';
 include_once '../objects/category.php';
  
+// get database connection
 $database = new Database();
 $db = $database->getConnection();
  
+// prepare category object
 $category = new Category($db);
  
-// get posted data
+// get category id
 $data = json_decode(file_get_contents("php://input"));
  
-// set category property values
-$category->name = $data->name;
-$category->description = $data->description;
+// set category id to be deleted
+$category->id = $data->id;
  
-// create the category
-if($category->create()){
+// delete the category
+if($category->delete()){
     echo '{';
-        echo '"message": "category was created."';
+        echo '"message": "category was deleted."';
     echo '}';
 }
  
-// if unable to create the category, tell the user
+// if unable to delete the category
 else{
     echo '{';
-        echo '"message": "Unable to create category."';
+        echo '"message": "Unable to delete object."';
     echo '}';
 }
 ?>
