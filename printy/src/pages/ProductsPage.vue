@@ -8,11 +8,11 @@
                     <h2>{{category.name}}</h2>
                     <router-link to='/'>Voir tout</router-link>
                 </div>
-                <div class='product-item' v-if='product.category_id === category.id' v-for="product in products" v-bind:key='product.id'>
+                <!-- <div class='product-item' v-if='product.category_id === category.id' v-for="product in products" v-bind:key='product.id'>
                     <div class='product-image' :style="{backgroundImage: 'url(' + product.image_path +')'}"></div>
                     <h3>{{product.name}}</h3>
                     <span>{{product.price}}</span>
-                </div>
+                </div> -->
             </div>
         </div>
         
@@ -35,11 +35,8 @@ export default {
         
     },
     created() {
-        axios.get('/api/product/read.php')
-        .then(response => this.products = response.data);
-
         axios.get('/api/category/read.php')
-        .then(response => this.categories = response.data);
+        .then(response => this.categories = console.log(response.data));
     }
 }
 </script>

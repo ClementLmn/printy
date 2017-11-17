@@ -208,39 +208,21 @@ class Product{
         $this->category_name = $row['category_name'];
     }
 
-    function getCat(){
+    function getCat($idCat){
     
         // query to read single record
-        $query = "SELECT
-                    c.name as category_name, p.id, p.name, p.description, p.image_path, p.price, p.category_id, p.created
-                FROM
-                    " . $this->table_name . " p
-                    LEFT JOIN
-                        categories c
-                            ON p.category_id = c.id
-                WHERE
-                    p.id = ?
-                LIMIT
-                    0,1";
-    
-        // prepare query statement
-        $stmt = $this->conn->prepare( $query );
-    
-        // bind id of product to be updated
-        $stmt->bindParam(1, $this->id);
-    
-        // execute query
+
+        //$cat = if(isset($_GET['cat']))
+        $query = "SELECT *
+                from ".$this->table_name."
+                where id in (select product_id from product_category where category_id = ".$idCat.")";
+
+                 // prepare query statement
+        $stmt = $this->conn->prepare($query);
+        
+            // execute query
         $stmt->execute();
     
-        // get retrieved row
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    
-        // set values to object properties
-        $this->name = $row['name'];
-        $this->price = $row['price'];
-        $this->image_path = $row['image_path'];
-        $this->description = $row['description'];
-        $this->category_id = $row['category_id'];
-        $this->category_name = $row['category_name'];
+        return $stmt;
     }
 }

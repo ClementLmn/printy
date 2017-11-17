@@ -6,13 +6,15 @@ header("Content-Type: application/json; charset=UTF-8");
 // include database and object files
 include_once '../config/database.php';
 include_once '../objects/category.php';
+include_once '../objects/product.php';
  
 // instantiate database and category object
 $database = new Database();
 $db = $database->getConnection();
- 
 // initialize object
 $category = new Category($db);
+$product = new Product($db);
+
  
 // query categorys
 $stmt = $category->read();
@@ -31,14 +33,38 @@ if($num>0){
         // extract row
         // this will make $row['name'] to
         // just $name only
-        extract($row);
- 
+
+        // La on chope les products dans cette category
+        $stmt2 = $product->getCat($row['id']);
+        $num2 = $stmt2->rowCount();
+        if($num2>0){
+            $products_arr=array();
+
+            while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)){
+                // extract row
+                // this will make $row['name'] to
+                // just $name only
+         
+                $product_item=array(
+                    "id" => $row2['id'],
+                    "image_path" => $row2['image_path'],
+                    "name" => $row2['name'],
+                    "description" => html_entity_decode($row2['description']),
+                    "price" => $row2['price']
+                );
+         
+                array_push($products_arr, $product_item);
+            }
+
+        }
+
         $category_item=array(
-            "id" => $id,
-            "name" => $name,
-            "description" => html_entity_decode($description)
+            "id" => $row['id'],
+            "name" => $row['name'],
+            "description" => html_entity_decode($row['description']),
+            "products" => $products_arr
         );
- 
+
         array_push($categorys_arr, $category_item);
     }
  
