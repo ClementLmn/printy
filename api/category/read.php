@@ -37,8 +37,8 @@ if($num>0){
         // La on chope les products dans cette category
         $stmt2 = $product->getCat($row['id']);
         $num2 = $stmt2->rowCount();
+        $products_arr=array();
         if($num2>0){
-            $products_arr=array();
 
             while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)){
                 // extract row

@@ -4,15 +4,18 @@
 
 .list-intro{
     width: 200px;
+    flex-shrink: 0;
 }
 
 .product-list-wrapper{
     width: 100%;
-    overflow-x: scroll;
+    margin: 0 0 55px;
+    overflow-x: auto;
 }
 
 .product-item{
     margin: 0 $gutter*2;
+    flex-shrink: 0;
 }
 
 .product-image{

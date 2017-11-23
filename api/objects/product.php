@@ -176,12 +176,9 @@ class Product{
     
         // query to read single record
         $query = "SELECT
-                    c.name as category_name, p.id, p.name, p.description, p.image_path, p.price, p.category_id, p.created
+                    p.id, p.image_path, p.name, p.description, p.price
                 FROM
                     " . $this->table_name . " p
-                    LEFT JOIN
-                        categories c
-                            ON p.category_id = c.id
                 WHERE
                     p.id = ?
                 LIMIT
