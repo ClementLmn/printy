@@ -3,7 +3,14 @@
     <div class='container'>
         <h1>Account</h1>
         <h2>Hello {{ user.fname +' '+ user.lname}}</h2>
-        <span v-on:click='logout'>Logout</span>
+        <div>
+            <router-link to="/account/infos">See my informations</router-link>
+        </div>
+        <div>
+            <router-link to="/account/orders">See my orders</router-link>
+            
+        </div>
+        <button v-on:click='logout'>Logout</button>
     </div>
 </template>
 

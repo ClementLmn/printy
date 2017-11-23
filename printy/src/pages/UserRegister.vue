@@ -55,8 +55,6 @@ export default {
     },
     methods: {
         onSubmit: function(){
-            console.log('click')
-            console.log(this.pwd, this.fname, this.lname, this.mail)
              axios.post(this.url, {
                 pwd: this.pwd,
                 fname: this.fname,
