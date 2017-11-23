@@ -35,10 +35,10 @@ if($num>0){
  
         $user_item=array(
             "id" => $id,
-            "fname" => $fname,
+            "fname" => html_entity_decode($fname),
             "lname" => html_entity_decode($lname),
-            "pwd" => $pwd,
-            "mail" => $mail
+            "pwd" => html_entity_decode($pwd),
+            "mail" => html_entity_decode($mail)
         );
  
         array_push($users_arr, $user_item);

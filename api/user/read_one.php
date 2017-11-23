@@ -17,7 +17,7 @@ $db = $database->getConnection();
 $user = new User($db);
  
 // set ID property of product to be edited
-$user->id = isset($_GET['id']) ? $_GET['id'] : die();
+$user->mail = isset($_GET['mail']) ? $_GET['mail'] : die();
  
 // read the details of product to be edited
 $user->readOne();

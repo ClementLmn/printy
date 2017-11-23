@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class='container'>
         <h1>Home</h1>
         <!-- <div v-for="product in products" v-bind:key='product.id'>
             <h2>{{product.name}}</h2>

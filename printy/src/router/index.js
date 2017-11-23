@@ -6,6 +6,10 @@ import CartPage from '@/pages/CartPage'
 import AccountPage from '@/pages/AccountPage'
 import SingleProduct from '@/pages/SingleProduct'
 import SingleCategory from '@/pages/SingleCategory'
+import UserRegister from '@/pages/UserRegister'
+import UserLogin from '@/pages/UserLogin'
+import InfosAccount from '@/pages/InfosAccount'
+import OrdersAccount from '@/pages/OrdersAccount'
 
 Vue.use(Router)
 
@@ -18,9 +22,29 @@ export default new Router({
             component: HomePage
         },
         {
+            path: '/register',
+            name: 'UserRegister',
+            component: UserRegister
+        },
+        {
+            path: '/login',
+            name: 'UserLogin',
+            component: UserLogin
+        },
+        {
             path: '/products',
             name: 'ProductsPage',
             component: ProductsPage
+        },
+        {
+            path: '/account/infos',
+            name: 'InfosAccount',
+            component: InfosAccount
+        },
+        {
+            path: '/account/orders',
+            name: 'OrdersAccount',
+            component: OrdersAccount
         },
         {
             path: '/account',

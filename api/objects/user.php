@@ -11,7 +11,6 @@ class User{
     public $lname;
     public $pwd;
     public $mail;
-    public $created;
  
     // constructor with $db as database connection
     public function __construct($db){
@@ -22,11 +21,11 @@ class User{
     
         // select all query
         $query = "SELECT
-                    u.id, u.fname, u.lname, u.pwd, u.mail, u.created
+                    u.id, u.fname, u.lname, u.pwd, u.mail
                 FROM
                     " . $this->table_name . " u
                 ORDER BY
-                    u.created DESC";
+                    u.id DESC";
     
         // prepare query statement
         $stmt = $this->conn->prepare($query);
@@ -45,24 +44,22 @@ class User{
        $query = "INSERT INTO
                    " . $this->table_name . "
                SET
-                   fname=:fname, lname=:lname, pwd=:pwd, mail=:mail, created=:created";
+                   fname=:fname, lname=:lname, pwd=:pwd, mail=:mail";
     
        // prepare query
        $stmt = $this->conn->prepare($query);
     
        // sanitize
-       $this->fname=htmlspecialchars(strip_tags($this->name));
+       $this->fname=htmlspecialchars(strip_tags($this->fname));
        $this->lname=htmlspecialchars(strip_tags($this->lname));
        $this->pwd=htmlspecialchars(strip_tags($this->pwd));
        $this->mail=htmlspecialchars(strip_tags($this->mail));
-       $this->created=htmlspecialchars(strip_tags($this->created));
     
        // bind values
        $stmt->bindParam(":fname", $this->fname);
        $stmt->bindParam(":lname", $this->lname);
        $stmt->bindParam(":pwd", $this->pwd);
        $stmt->bindParam(":mail", $this->mail);
-       $stmt->bindParam(":created", $this->created);
     
        // execute query
        if($stmt->execute()){
@@ -140,11 +137,11 @@ class User{
     
         // query to read single record
         $query = "SELECT
-                    u.id, u.fname, u.lname, u.pwd, u.mail, u.created
+                    u.id, u.fname, u.lname, u.pwd, u.mail
                 FROM
                     " . $this->table_name . " u
                 WHERE
-                    u.id = ?
+                    u.mail = ?
                 LIMIT
                     0,1";
     
@@ -152,7 +149,7 @@ class User{
         $stmt = $this->conn->prepare( $query );
     
         // bind id of product to be updated
-        $stmt->bindParam(1, $this->id);
+        $stmt->bindParam(1, $this->mail);
     
         // execute query
         $stmt->execute();
@@ -164,6 +161,6 @@ class User{
         $this->fname = $row['fname'];
         $this->lname = $row['lname'];
         $this->pwd = $row['pwd'];
-        $this->mail = $row['mail'];
+        $this->id = $row['id'];
     }
 }

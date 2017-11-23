@@ -25,7 +25,6 @@ $user->fname = $data->fname;
 $user->lname = $data->lname;
 $user->pwd = $data->pwd;
 $user->mail = $data->mail;
-$user->created = date('Y-m-d H:i:s');
  
 // create the product
 if($user->create()){

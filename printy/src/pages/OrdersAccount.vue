@@ -1,7 +1,7 @@
 
 <template>
     <div class='container'>
-        <h1>Account</h1>
+        <h1>Your orders</h1>
         <h2>Hello {{ user.fname +' '+ user.lname}}</h2>
         <span v-on:click='logout'>Logout</span>
     </div>
@@ -10,7 +10,7 @@
 <script>
 import axios from 'axios'
 export default {
-    name: 'AccountPage',
+    name: 'OrdersAccount',
     data () {
         return {
             url: '/api/user/read_one.php?mail=',

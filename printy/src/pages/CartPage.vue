@@ -18,6 +18,11 @@ export default {
             products: []
         }
     },
+    beforeCreate: function () {
+        if (!this.$session.exists()) {
+            this.$router.push('/login')
+        }
+    },
     created() {
         axios.get(this.url)
         .then(response => this.products = response.data)
