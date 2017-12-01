@@ -18,6 +18,7 @@ html{
 }
 
 body{
+    overflow-y: scroll;
     font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
     color: $txt;
     font-size: 1.6em;

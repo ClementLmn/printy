@@ -1,7 +1,21 @@
 <template>
     <div id="app">
         <HeaderTop></HeaderTop>
-        <router-view/>
+        <transition
+            v-on:enter="afterEnter"
+            v-on:leave="leave"
+            v-on:before-leave="beforeLeave"
+            v-bind:css="false"
+            mode="out-in"
+        >
+            <router-view class="content-page"/>
+        </transition>
+        <div ref="stripes" class="stripes">
+            <div ref="black" class="black"></div>
+            <div ref="magenta" class="magenta"></div>
+            <div ref="yellow" class="yellow"></div>
+            <div ref="cyan" class="cyan"></div>
+        </div>
         <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <defs>
                 <symbol id="icon-cart" viewBox="0 0 32 32">
@@ -23,12 +37,31 @@
 
 <script>
 import HeaderTop from '@/components/HeaderTop'
+import TweenMax from 'gsap'
 export default {
     name: 'app',
 
     components: {
 		HeaderTop
-	}
+	},
+    methods: {
+        beforeLeave: function(el){
+            const stripes = [this.$refs.yellow, this.$refs.magenta, this.$refs.cyan, this.$refs.black]
+            TweenMax.set(stripes, {transformOrigin:'50% bottom'})
+        },
+        leave: function (el, done) {
+            const stripes = [this.$refs.yellow, this.$refs.magenta, this.$refs.cyan, this.$refs.black]
+            TweenMax.staggerTo(stripes, 0.4, {scaleY: 1, ease: Power2.easeInOut}, 0.1, function(){
+                TweenMax.set(stripes, {transformOrigin:'50% top'})
+                done();
+
+            })
+        },
+        afterEnter: function (el) {
+            const stripes = [this.$refs.yellow, this.$refs.magenta, this.$refs.cyan, this.$refs.black]
+            TweenMax.staggerTo(stripes, 0.4, {scaleY: 0, delay: 0.1, ease: Power2.easeInOut}, 0.1)
+        }
+    }
 }
 </script>
 

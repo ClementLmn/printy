@@ -1,7 +1,13 @@
 
 <template>
-    <div class='container'>
-        <h1>{{product.name}}</h1>
+    <div class='single-product'>
+        <div class="image-pane">
+
+        </div>
+        <div class="product-pane">
+            <h1>{{product.name}}</h1>
+        </div>
+        
     </div>
 </template>
 

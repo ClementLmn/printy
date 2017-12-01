@@ -1,0 +1,27 @@
+.stripes{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    pointer-events: none;
+    z-index: 100;
+    > div {
+        flex: 1;
+        height: 100vh;
+        transform: scaleY(0);
+        transform-origin: 50% bottom;
+    }
+    .cyan{
+        background-color: $cyan;
+    }
+    .yellow{
+        background-color: $yellow;
+    }
+    .magenta{
+        background-color: $magenta;
+    }
+    .black{
+        background-color: $black;
+    }
+}
