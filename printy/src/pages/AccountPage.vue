@@ -1,20 +1,25 @@
 
 <template>
-    <div class='container'>
-        <h1>Account</h1>
-        <h2>Hello {{ user.fname +' '+ user.lname}}</h2>
-        <div>
-            <router-link to="/account/infos">See my informations</router-link>
+    <div>
+        <div v-if='this.$session.exists()' class='container'>
+            <h1>Account</h1>
+            <h2>Hello {{ user.fname +' '+ user.lname}}</h2>
+            <div>
+                <router-link to="/account/infos">See my informations</router-link>
+            </div>
+            <div>
+                <router-link to="/account/orders">See my orders</router-link>
+                
+            </div>
+            <button v-on:click='logout'>Logout</button>
         </div>
-        <div>
-            <router-link to="/account/orders">See my orders</router-link>
-            
-        </div>
-        <button v-on:click='logout'>Logout</button>
+        <Login v-else />
     </div>
+    
 </template>
 
 <script>
+import Login from '@/components/Login'
 import axios from 'axios'
 export default {
     name: 'AccountPage',
@@ -24,15 +29,13 @@ export default {
             user: ''
         }
     },
+    components: {
+		Login
+	},
     methods: {
         logout: function(){
             this.$session.destroy()
             this.$router.push('/')
-        }
-    },
-    beforeCreate: function () {
-        if (!this.$session.exists()) {
-            this.$router.push('/login')
         }
     },
     created() {

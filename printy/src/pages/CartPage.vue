@@ -1,15 +1,19 @@
 
 <template>
-    <div class='container'>
-        <h1>Cart</h1>
-        <div v-for="product in products" v-bind:key='product.id'>
-            <h2>{{product.name}}</h2>
+    <div>
+        <div v-if='this.$session.exists()' class='container'>
+            <h1>Cart</h1>
+            <div v-for="product in products" v-bind:key='product.id'>
+                <h2>{{product.name}}</h2>
+            </div>
         </div>
+        <Login v-else />
     </div>
 </template>
 
 <script>
 import axios from 'axios'
+import Login from '@/components/Login'
 export default {
     name: 'CartPage',
     data () {
@@ -18,11 +22,9 @@ export default {
             products: []
         }
     },
-    beforeCreate: function () {
-        if (!this.$session.exists()) {
-            this.$router.push('/login')
-        }
-    },
+    components: {
+		Login
+	},
     created() {
         axios.get(this.url)
         .then(response => this.products = response.data)

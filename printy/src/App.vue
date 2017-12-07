@@ -2,7 +2,7 @@
     <div id="app">
         <HeaderTop></HeaderTop>
         <transition
-            v-on:enter="afterEnter"
+            v-on:enter="enter"
             v-on:leave="leave"
             v-on:before-leave="beforeLeave"
             v-bind:css="false"
@@ -48,8 +48,10 @@ export default {
         beforeLeave: function(el){
             const stripes = [this.$refs.yellow, this.$refs.magenta, this.$refs.cyan, this.$refs.black]
             TweenMax.set(stripes, {transformOrigin:'50% bottom'})
+            console.log('beforeleave')
         },
         leave: function (el, done) {
+            console.log('leave')
             const stripes = [this.$refs.yellow, this.$refs.magenta, this.$refs.cyan, this.$refs.black]
             TweenMax.staggerTo(stripes, 0.4, {scaleY: 1, ease: Power2.easeInOut}, 0.1, function(){
                 TweenMax.set(stripes, {transformOrigin:'50% top'})
@@ -57,7 +59,8 @@ export default {
 
             })
         },
-        afterEnter: function (el) {
+        enter: function (el) {
+            console.log('enter')            
             const stripes = [this.$refs.yellow, this.$refs.magenta, this.$refs.cyan, this.$refs.black]
             TweenMax.staggerTo(stripes, 0.4, {scaleY: 0, delay: 0.1, ease: Power2.easeInOut}, 0.1)
         }
