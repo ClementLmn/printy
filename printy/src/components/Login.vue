@@ -43,10 +43,15 @@ export default {
             .then(response => {
                 this.user = response.data
                 if (this.user.id && this.user.pwd == this.pwd){
-                    this.errorsPhp = 'Bien joué'
                     this.$session.start()
                     this.$session.set('id', this.user.mail)
-                }else{
+                    this.$router.go({
+                        path: this.$router.path,
+                        query: {
+                            t: + new Date()
+                        }
+                    })
+                }else{ 
                     this.errorsPhp = 'Bad mail & password combinaison'
                 }
             })

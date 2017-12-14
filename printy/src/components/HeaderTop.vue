@@ -9,17 +9,17 @@
             <ul class="nav">
                 <li>
                     <router-link class="nav-link" to='/products'>
-                        <svg class='icon icon-grid'><use xlink:href='#icon-grid'></use></svg>
+                        <span>Catalog</span>
                     </router-link>
                 </li>
                 <li>
                     <router-link class="nav-link" to='/cart'>
-                        <svg class='icon icon-cart'><use xlink:href='#icon-cart'></use></svg>
+                        <span>Cart</span>
                     </router-link>
                 </li>
                 <li>
                     <router-link class="nav-link" to='/account'>
-                        <svg class='icon icon-user'><use xlink:href='#icon-user'></use></svg>
+                        <span>Account</span>
                     </router-link>
                 </li>
             </ul>

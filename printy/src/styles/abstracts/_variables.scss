@@ -15,14 +15,12 @@ $transition: 0.2s ease-in-out;
 
 
 // Fonts
-$avalon: 'avalon', sans-serif;
-$avalonItalic: 'avalon_italic', $avalon;
-$avalonBold: 'avalon_bold', $avalon;
-$avalonBoldItalic: 'avalon_bolditalic', $avalonItalic;
-$josefinItalic: 'josefin_italic', sans-serif;
-$josefinSemiboldItalic: 'josefin_semibolditalic', $josefinItalic;
-$josefinBold: 'josefin_bold', $josefinSemiboldItalic;
-$josefinBoldItalic: 'josefin_bolditalic', $josefinSemiboldItalic;
+$butler: 'Butler-Regular', sans-serif;
+$butlerMedium: 'Butler-Medium', $butler;
+$butlerBold: 'Butler-Bold', $butlerMedium;
+$butlerExtraBold: 'Butler-ExtraBold', $butlerBold;
+$founders: 'Founders Grotesk Regular';
+$foundersBold: 'Founders Grotesk Semibold', $founders;
 
 // Mediaqueries
 $retina: 'only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi)';

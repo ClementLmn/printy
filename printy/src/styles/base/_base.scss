@@ -19,15 +19,22 @@ html{
 
 body{
     overflow-y: scroll;
-    font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    font-family: $founders, Helvetica, Arial, sans-serif;
     color: $txt;
-    font-size: 1.6em;
+    font-size: 1.8em;
     line-height: 1.2;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
+
+
+h2, h3, h4, h5, h6{
+    font-family: $butlerBold;
+}
+
 h1{
+    font-family: $foundersBold;
     font-size: 5rem;
     margin: 0.67em 0;
 }

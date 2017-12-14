@@ -11,9 +11,13 @@
     'base/base';
 
 @import
-    'components/header';
+    'components/header',
+    'components/buttons';
 
 @import
     'layout/grid',
     'layout/stripes',
     'layout/products';
+
+@import
+    'page/home';

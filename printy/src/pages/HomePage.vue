@@ -1,9 +1,17 @@
 <template>
-    <div class='container'>
-        <h1>Home</h1>
-        <!-- <div v-for="product in products" v-bind:key='product.id'>
-            <h2>{{product.name}}</h2>
-        </div> -->
+    <div class='home'>
+        <div class='home-top'>
+            <div class='txt-top container'>
+                <h1>Quality prints for your design.</h1>
+                <router-link class='link-arrow white' to='/products'>See our products<span></span></router-link>
+            </div>
+            <div class='video-container'>
+                <video autoplay loop id="video-background" muted plays-inline>
+                    <source src="/static/printy.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <h2>Home</h2>
     </div>
 </template>
 

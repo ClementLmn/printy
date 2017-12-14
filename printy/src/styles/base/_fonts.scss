@@ -1,1 +1,37 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i,600,700');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700');
+
+@font-face {
+    font-family:"Butler-Bold";
+    src:url("font/Butler_Bold.woff2") format("woff2"),url("font/Butler_Bold.woff") format("woff"),url("font/Butler_Bold.otf") format("opentype");
+    font-style:normal;font-weight:400;
+}
+@font-face {
+    font-family:"Butler-Regular";
+    src:url("font/Butler_Regular.woff2") format("woff2"),url("font/Butler_Regular.woff") format("woff"),url("font/Butler_Regular.otf") format("opentype");
+    font-style:normal;font-weight:400;
+}
+
+@font-face {
+    font-family:"Butler-ExtraBold";
+    src:url("font/Butler_ExtraBold.woff2") format("woff2"),url("font/Butler_ExtraBold.woff") format("woff"),url("font/Butler_ExtraBold.otf") format("opentype");
+    font-style:normal;font-weight:400;
+}
+
+@font-face {
+    font-family:"Butler-Medium";
+    src:url("font/Butler_Medium.woff2") format("woff2"),url("font/Butler_Medium.woff") format("woff"),url("font/Butler_Medium.otf") format("opentype");
+    font-style:normal;font-weight:400;
+}
+
+@font-face {
+    font-family:"Founders Grotesk Semibold";
+    src:url("font/FoundersGrotesk-Semibold.woff2") format("woff2"),url("font/FoundersGrotesk-Semibold.woff") format("woff"),url("font/FoundersGrotesk-Semibold.otf") format("opentype");
+    font-style:normal;font-weight:400;
+}
+
+@font-face {
+    font-family:"Founders Grotesk Regular";
+    src:url("font/FoundersGrotesk-Regular.woff2") format("woff2"),url("font/FoundersGrotesk-Regular.woff") format("woff"),url("font/FoundersGrotesk-Regular.otf") format("opentype");
+    font-style:normal;font-weight:400;
+}

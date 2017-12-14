@@ -8,7 +8,7 @@
             v-bind:css="false"
             mode="out-in"
         >
-            <router-view class="content-page"/>
+            <router-view :key="$route.fullPath" class="content-page"/>
         </transition>
         <div ref="stripes" class="stripes">
             <div ref="black" class="black"></div>
