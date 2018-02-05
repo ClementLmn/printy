@@ -1,0 +1,65 @@
+.thick-meter{
+    width: 50%;
+    .thick-wrapper{
+        display: flex;
+        align-items: flex-end;
+        height: 15px;
+        margin: 0 0 10px;
+    }
+    .thick{
+        display: block;
+        height: 1px;
+        width: 100%;
+        background-color: $txt;
+    }
+    .prev, .next{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        height: 20px;
+        width: 20px;
+        &:before, &:after{
+            content: '';
+            display: block;
+            height: 1px;
+            width: 5px;
+            background-color: $txt;
+            transition: $transition;
+        }
+        &:before{
+            transform-origin: 100% 50%;
+            transform: rotate3d(0, 0, 1, -30deg);
+        }
+        &:after{
+            transform-origin: 0% 50%;
+            transform: rotate3d(0, 0, 1, 30deg);
+        }
+        &:hover{
+            &:before{
+                transform: rotate3d(0, 0, 1, -45deg);
+            }
+            &:after{
+                transform: rotate3d(0, 0, 1, 45deg);
+            } 
+        }
+    }
+    .next{
+        transform: rotate3d(0,0,1, 180deg);
+    }
+}
+
+.thick-slider{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.thick-inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    height: 1em;
+}
