@@ -50,9 +50,13 @@
         font-size: 2rem;
         cursor: pointer;
         color: #C1C1C1;
-        transition: color 0.3s ease-in-out;
+        transition: color $transition;
         &.active{
             color: $txt;
+            cursor: auto;
+        }
+        &:not(.active):hover{
+            color: $blue;
         }
     }
 }

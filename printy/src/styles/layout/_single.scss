@@ -3,6 +3,16 @@
         font-family: $butlerBold;
         margin: 0 0 15px;
     }
+    h2{
+        font-size: 4rem;
+        padding: 0 0 10px;
+        color: rgba($txt, 0.1);
+        border-bottom: 1px solid currentColor;
+        
+    }
+    .descr{
+        margin: 45px 0 0;
+    }
 }
 
 .product-info{
@@ -20,8 +30,8 @@
 }
 
 .product-pane{
-    padding-left: 45vw;
-    padding: 60px 0 0 45vw;
+    position: relative;
+    padding: 60px 0 60px 45vw;
 }
 
 .image-pane{
@@ -47,21 +57,44 @@
     margin: 0 0 55px;
     h3{
         font-family: $foundersBold;
+        font-size: 3rem;
     }
     > *{
         flex: 1;
         display: flex;
+        &:nth-child(2){
+            padding-right: 50px;
+            justify-content: center;
+        }
     }
     .ref{
         .ref-title{
             color: rgba($txt, 0.3)
         }
         .ref-numbers{
-            font-size: 3rem;
+            font-size: 2.4rem;
             font-family: $foundersBold;
             > span{
                 margin: 0 15px 0 0;
             }
         }
+    }
+}
+
+.order{
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    padding: 15px 20px;
+    border: none;
+    font-size: 2rem;
+    font-family: $foundersBold;
+    background-color: $blue;
+    box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.1);
+    transition: 0.2s ease-in-out;
+    color: white;
+    &:focus, &:hover{
+        outline: none;
+        background-color: $blueDark;
     }
 }

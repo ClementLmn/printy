@@ -16,9 +16,8 @@
                     <a href="#">New product</a>
                 </div>
                 <div class="descr">
-                    <h2>Description</h2>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque rem, nobis quas vel ratione rerum accusantium, voluptatum iusto sint, error ipsum nihil excepturi nam voluptate quisquam pariatur nisi eum sit. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum odit dolor facilis ipsa quaerat reprehenderit quisquam nam deleniti, nisi, repellendus voluptatibus porro doloribus dolores hic nostrum illo, tempore dicta? Aperiam?
+                        {{product.description}}
                     </p>
                 </div>
                 <div class="paper">
@@ -27,14 +26,9 @@
                     <PaperThickness></PaperThickness>
                     <PaperSizing :productId='product.id'></PaperSizing>
                 </div>
-                <div class="your-design">
-                    <h2>Your design</h2>
-                    <div class="uploads">
-                        <div class="rect"></div>
-                        <div class="vers"></div>
-                    </div>
-                </div>
-                <button class="order">order</button>
+                <DesignZone :verso='true'></DesignZone>
+
+                <button class="order">Add to cart</button>
             </div>
         </div>
         
@@ -46,6 +40,7 @@ import TweenMax from 'gsap'
 import axios from 'axios'
 
 import PaperType from '@/components/PaperType'
+import DesignZone from '@/components/DesignZone'
 import PaperThickness from '@/components/PaperThickness'
 import PaperSizing from '@/components/PaperSizing'
 
@@ -53,6 +48,7 @@ export default {
     name: 'SingleProduct',
     components: {
         PaperThickness,
+        DesignZone,
         PaperType,
         PaperSizing  
     },

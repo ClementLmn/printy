@@ -1,0 +1,16 @@
+.your-design{
+    .uploads{
+        display: flex;
+        justify-content: space-between;
+        height: 150px;
+    }
+    .zone{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: $foundersBold;
+        font-size: 2.5rem;
+        width: 48%;
+        border: 1px solid #C1C1C1;
+    }
+}
