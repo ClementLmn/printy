@@ -52,7 +52,8 @@ export default {
             }];
             this.currentSize = [{
                 index: c,
-                txt: this.sizes[c].name
+                txt: this.sizes[c].name,
+                class: this.sizes[c].class
             }];
             this.nextSize = [{
                 index: d,
@@ -62,6 +63,8 @@ export default {
                 index: e,
                 txt: this.sizes[e].name
             }];
+            this.$emit('update', this.currentSize[0]);
+            
         },
         nextSlide() {
             const ci = this.currentSize[0].index;
@@ -78,6 +81,7 @@ export default {
 
             TweenMax.staggerFromTo(this.slides, 0.3, {y:"+="+ this.slideHeight}, {y:"-="+ this.slideHeight, ease: Power1.easeInOut}, 0.05);
             
+            
         },
         prevSlide() {
             const ci = this.currentSize[0].index;
@@ -92,7 +96,6 @@ export default {
             this.setSize(a,b,c,d,e);
 
             TweenMax.staggerFromTo(this.slides, 0.3, {y:"-="+ this.slideHeight}, {y:"+="+ this.slideHeight, ease: Power1.easeInOut}, -0.05);
-            
         }
     },
     
@@ -102,19 +105,19 @@ export default {
         switch(this._props.productId){
             case '2':
                 this.sizes = [
-                    {name :"89mm x 51mm", refer: "1. 3. 4."},
-                    {name :"25mm x 76mm", refer: "5."},
-                    {name :"57mm x 57mm", refer: "2. 6."}
+                    {name :"89mm x 51mm", refer: "1. 3. 4.", class: 'visit-card'},
+                    {name :"25mm x 76mm", refer: "5.", class: 'visit-card-small'},
+                    {name :"57mm x 57mm", refer: "2. 6.", class: 'square-card'}
                 ];
 
             break;
             default:
                 this.sizes = [
-                    {name :'10" x 7"', refer: "No reference"},
-                    {name :'19" x 13"', refer: "No reference"},
-                    {name :'23" x 17"', refer: "No reference"},
-                    {name :'28" x 20"', refer: "No reference"},
-                    {name :'40" x 28"', refer: "No reference"}
+                    {name :'10" x 7"', refer: "No reference", class: 'classic classic-1'},
+                    {name :'19" x 13"', refer: "No reference", class: 'classic classic-2'},
+                    {name :'23" x 17"', refer: "No reference", class: 'classic classic-3'},
+                    {name :'28" x 20"', refer: "No reference", class: 'classic classic-4'},
+                    {name :'40" x 28"', refer: "No reference", class: 'classic classic-5'}
                 ];
 
             break;
@@ -132,7 +135,8 @@ export default {
         }];
         this.currentSize = [{
             index: 0,
-            txt: this.sizes[0].name
+            txt: this.sizes[0].name,
+            class: this.sizes[0].class
         }];
         this.nextSize = [{
             index: 1,
@@ -142,6 +146,8 @@ export default {
             index: 2,
             txt: this.sizes[2].name
         }];
+
+        this.$emit('update', this.currentSize[0]);
 
         
     },

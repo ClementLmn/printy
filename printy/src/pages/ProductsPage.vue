@@ -1,5 +1,8 @@
 
 <template>
+<div>
+
+    <HeaderTop class='blacked'></HeaderTop>
     <div class='container products-page'>
         <h1>All our products</h1>
         <div class='product-list-wrapper' v-if="category.products.length > 0" v-for="(category, index) in categories" v-bind:key='category.id'>
@@ -26,10 +29,14 @@
         
        
     </div>
+</div>
+    
 </template>
 
 <script>
 import axios from 'axios'
+import HeaderTop from '@/components/HeaderTop'
+
 import TweenMax from 'gsap'
 
 export default {
@@ -42,6 +49,9 @@ export default {
             actual: []
         }
     },
+    components: {
+		HeaderTop
+	},
     methods: {
         initData(response){
             this.categories = response.data;
@@ -60,9 +70,9 @@ export default {
             this.actual.splice(i, 1, this.actual[i]-1);
             const prdSld = this.$el.querySelectorAll('.product-list-wrapper')[i].querySelectorAll('.product-slide');
             if(window.innerWidth > 1100){
-                TweenMax.staggerTo(prdSld, 0.8, {x: "+=960px"}, -0.05);
+                TweenMax.staggerTo(prdSld, 1, {ease: Power2.easeInOut,x: "+=960px"}, -0.03);
             }else{
-                TweenMax.staggerTo(prdSld, 0.8, {x: "+=580px"}, -0.05);
+                TweenMax.staggerTo(prdSld, 1, {ease: Power2.easeInOut,x: "+=580px"}, -0.03);
             }
         },
         toRight(i){
@@ -73,9 +83,9 @@ export default {
             
             const prdSld = this.$el.querySelectorAll('.product-list-wrapper')[i].querySelectorAll('.product-slide');
             if(window.innerWidth > 1100){
-                TweenMax.staggerTo(prdSld, 0.8, {x: "-=960px"}, 0.05);
+                TweenMax.staggerTo(prdSld, 1, {ease: Power2.easeInOut,x: "-=960px"}, 0.03);
             }else{
-                TweenMax.staggerTo(prdSld, 0.8, {x: "-=580px"}, 0.05);
+                TweenMax.staggerTo(prdSld, 1, {ease: Power2.easeInOut,x: "-=580px"}, 0.03);
             }
         }    
     },

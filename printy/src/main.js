@@ -10,6 +10,16 @@ Vue.use(VueSession)
 Vue.use(VeeValidate)
 Vue.config.productionTip = false
 
+const shared = new Vue({data:{ cart: [] }})
+
+shared.install = function(){
+    Object.defineProperty(Vue.prototype, '$global', {
+      get () { return shared }
+    })
+}
+Vue.use(shared);
+
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -1,6 +1,5 @@
 <template>
     <div id="app">
-        <HeaderTop></HeaderTop>
         <transition
             v-on:enter="enter"
             v-on:leave="leave"

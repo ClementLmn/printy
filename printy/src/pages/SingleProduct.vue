@@ -9,6 +9,7 @@
         </div>
         <div class="product-pane">
             <div class='single-container'>
+                <router-link class="back" to='/products'><span class='arr'>←</span>Back</router-link>
                 <h1>{{product.name}}</h1>
                 <div class="product-info">
                     <a href="#">Best sellers</a>,
@@ -22,13 +23,13 @@
                 </div>
                 <div class="paper">
                     <h2>Paper</h2>
-                    <PaperType :productId='product.id'></PaperType>
-                    <PaperThickness></PaperThickness>
-                    <PaperSizing :productId='product.id'></PaperSizing>
+                    <PaperType @update='updateType' v-if="product.id" :productId='product.id'></PaperType>
+                    <PaperThickness @update='updateThick'></PaperThickness>
+                    <PaperSizing @update='updateSizing' v-if="product.id" :productId='product.id'></PaperSizing>
                 </div>
-                <DesignZone :verso='true'></DesignZone>
+                <DesignZone @update='updateRecto' @updateV='updateVerso' v-if="product.id" :productId='product.id'></DesignZone>
 
-                <button class="order">Add to cart</button>
+                <button @click='addToCart()' class="order">Add to cart</button>
             </div>
         </div>
         
@@ -50,7 +51,7 @@ export default {
         PaperThickness,
         DesignZone,
         PaperType,
-        PaperSizing  
+        PaperSizing,
     },
     data () {
         return {
@@ -59,10 +60,44 @@ export default {
             product: {},
             currentImg: 0,
             nextImg : null,
-            img: null
+            img: null,
+            paperType: null,
+            paperSize: null,
+            paperWeight: null,
+            recto: null,
+            verso: null
         }
     },
     methods: {
+        addToCart(){
+            const order = {
+                id: this.product.id,
+                name: this.product.name,
+                type: this.paperType,
+                weight: this.paperWeight,
+                size: this.paperSize,
+                recto: this.recto,
+                verso: this.verso
+            };
+            this.$global._data.cart.push(order);
+            console.log(this.$global._data.cart);
+            
+        },
+        updateSizing(size){
+            this.paperSize = size;
+        },
+        updateType(size){
+            this.paperType = size;
+        },
+        updateThick(size){
+            this.paperWeight = size;
+        },
+        updateRecto(img){
+            this.recto = img;
+        },
+        updateVerso(img){
+            this.verso = img;
+        },
         imgSlide(i){
             const nb = i >= this.img.length ? 0 : i;
             this.nextImg = nb >= this.img.length - 1 ? this.img[0] : this.img[nb+1];

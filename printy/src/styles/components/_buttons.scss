@@ -39,6 +39,10 @@
 
 .arrow-link{
     transition: 0.2s ease-in-out;
+    &.white{
+        color: white;
+        font-size: 1.8rem;
+    }
     .arr{
         display: inline-block;
         margin-left: 5px;

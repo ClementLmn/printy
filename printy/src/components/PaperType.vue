@@ -56,6 +56,7 @@ export default {
                 index: e,
                 txt: this.sizes[e].name
             }];
+            this.$emit('update', this.currentSize[0]);
         },
         nextSlide() {
             const ci = this.currentSize[0].index;
@@ -118,6 +119,8 @@ export default {
             index: 2,
             txt: this.sizes[2].name
         }];
+
+        this.$emit('update', this.currentSize[0]);
         
     },
     mounted(){

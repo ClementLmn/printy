@@ -1,23 +1,31 @@
 .header{
-    padding: 20px 0;
+    padding: 20px 0 0;
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
+    color: white;    
     z-index: 20;
+    &.blacked{
+        color: $txt;
+        background-color: rgba(white, 0.6);
+        
+    }
 }
 
-.inner-header{
+.inner-header.container{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid currentColor;
+    padding: 0 0 10px;
     .logo-wrapper{
         width: 100px;
     }
     .logo{
         max-width: 100%;
         height: auto;
-        fill: $white;
+        fill: currentColor;
     }
     .nav{
         display: flex;
@@ -29,9 +37,8 @@
     }
     li {
         list-style-type: none;
-        margin: 0 25px;
+        margin: 0 0 0 25px;
         padding: 5px;
-        color: $white;
         a{
             display: block;
             width: 100%;
